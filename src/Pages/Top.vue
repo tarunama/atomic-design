@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Header from './../Organisms/Header'
-import Content from './../Templates/Content'
+import Header from '@/Organisms/Header'
+import Content from '@/Templates/Content'
 
 export default {
   name: 'Top',

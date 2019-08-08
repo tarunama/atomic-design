@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import HeaderTitle from './../Atoms/HeaderTitle'
-import LatestButton from './../Atoms/LatestButton'
+import HeaderTitle from '@/Atoms/HeaderTitle'
+import LatestButton from '@/Atoms/LatestButton'
 
 export default {
   name: 'Header',
