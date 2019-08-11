@@ -17,22 +17,22 @@ export default {
   },
   mounted () {
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(async position => {
-        const lat = position.coords.latitude
-        const lon = position.coords.longitude
-        const apiURL = process.env.VUE_APP_DARK_SKY_API_URL
-
-        try {
-          const res = await this.$_axios.get(`${apiURL}${lat},${lon}`)
-          console.log(res)
-        } catch (err) {
-          // TODO: わかりやすいlogを出力するようにする
-          console.error(err)
-        }
-      })
+      navigator.geolocation.getCurrentPosition(this.getWeatherInfo)
     } else {
       // HACKME: richなdialogを出す
       alert('このブラウザでは位置情報を取得できません')
+    }
+  },
+  methods: {
+    async getWeatherInfo (position) {
+      const apiURL = process.env.VUE_APP_API_URL
+      const param = { lat: position.coords.latitude, lon: position.coords.longitude }
+      try {
+        const res = await this.$_axios.post(`${apiURL}/weather`, param)
+        console.log(res)
+      } catch (err) {
+        console.error(err)
+      }
     }
   }
 }
