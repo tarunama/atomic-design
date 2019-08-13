@@ -2,18 +2,29 @@
   <v-app>
     <Header></Header>
     <Content></Content>
+    <Loading
+      :loading="loading"
+    ></Loading>
   </v-app>
 </template>
 
 <script>
 import Header from '@/Organisms/Header'
 import Content from '@/Templates/Content'
+import Loading from '@/Templates/Loading'
 
 export default {
   name: 'Top',
   components: {
     Content,
-    Header
+    Header,
+    Loading
+  },
+  data () {
+    return {
+      wData: null,
+      loading: true
+    }
   },
   mounted () {
     if ('geolocation' in navigator) {
@@ -28,8 +39,9 @@ export default {
       const apiURL = process.env.VUE_APP_API_URL
       const param = { lat: position.coords.latitude, lon: position.coords.longitude }
       try {
-        const res = await this.$_axios.post(`${apiURL}/weather`, param)
-        console.log(res)
+        const { data } = await this.$_axios.post(`${apiURL}/weather`, param)
+        this.loading = false
+        this.wData = data
       } catch (err) {
         console.error(err)
       }
