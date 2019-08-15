@@ -4,12 +4,21 @@
     href="https://github.com/vuetifyjs/vuetify/releases/latest"
     target="_blank"
   >
-    <span class="mr-2">Latest Release</span>
+    <Label
+      :classList="'mr-2'"
+      :text="'Latest Release'"
+    >
+    </Label>
   </v-btn>
 </template>
 
 <script>
+import Label from '@/Atoms/Label'
+
 export default {
-  name: 'LatestButton'
+  name: 'LatestButton',
+  components: {
+    Label
+  }
 }
 </script>

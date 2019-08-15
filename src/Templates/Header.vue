@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import HeaderTitle from '@/Atoms/HeaderTitle'
+import HeaderTitle from '@/Organisms/HeaderTitle'
 import LatestButton from '@/Atoms/LatestButton'
 
 export default {

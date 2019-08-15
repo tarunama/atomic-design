@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Header from '@/Organisms/Header'
+import Header from '@/Templates/Header'
 import Content from '@/Templates/Content'
 import Loading from '@/Templates/Loading'
 
