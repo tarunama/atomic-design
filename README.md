@@ -1,5 +1,8 @@
 # tenki-beta
 
+## Using API
+- https://darksky.net/
+
 ## Project setup
 ```
 npm install
