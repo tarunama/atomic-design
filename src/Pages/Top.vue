@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <Header></Header>
-    <Content></Content>
+    <Content
+      :wData="wData"
+    ></Content>
     <Loading
       :loading="loading"
     ></Loading>
@@ -36,7 +38,8 @@ export default {
   },
   methods: {
     async getWeatherInfo (position) {
-      const apiURL = process.env.VUE_APP_API_URL
+      // TODO: envごと対応
+      const apiURL = 'http://127.0.0.1:3000'
       const param = { lat: position.coords.latitude, lon: position.coords.longitude }
       try {
         const { data } = await this.$_axios.post(`${apiURL}/weather`, param)
@@ -44,6 +47,7 @@ export default {
         this.wData = data
       } catch (err) {
         console.error(err)
+        alert('情報を取得できませんでした')
       }
     }
   }

@@ -1,5 +1,7 @@
 <template>
-  <img :src="iconPath" />
+<div class="weather">
+  <img class="weather__icon" :src="iconPath" />
+</div>
 </template>
 
 <script>
@@ -22,3 +24,19 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* TODO: sass */
+
+.weather {
+  display: flex;
+  justify-content: center;
+  padding-top: 33px;
+}
+
+.weather__icon {
+  width: 33vw;
+  height: 33vh;
+}
+
+</style>
