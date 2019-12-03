@@ -1,7 +1,7 @@
 import express from 'express'
 import axios from 'axios'
 
-const cors = require('cors')
+import cors from 'cors'
 
 export default (app, _) => {
   app.use(express.json())
