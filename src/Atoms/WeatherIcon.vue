@@ -1,26 +1,23 @@
 <template>
-<div class="weather">
-  <img class="weather__icon" :src="iconPath" />
-</div>
+  <div class="weather">
+    <img class="weather__icon" :src="iconPath" />
+  </div>
 </template>
 
-<script>
-export default {
-  name: 'WeatherIcon',
-  props: {
-    wData: {
-      type: Object,
-      required: false
-    }
-  },
-  computed: {
-    iconPath () {
-      if (!this.wData) return
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
 
-      const iconName = this.wData.data.daily.icon
-      const iconPath = require(`@/assets/img/icon/${iconName}.png`)
-      return iconPath
-    }
+@Component
+export default class WeatherIcon extends Vue {
+  @Prop()
+  wData!: any;
+
+  get iconPath() {
+    if (!this.wData) return "";
+
+    const iconName = this.wData.data.daily.icon;
+    const iconPath = require(`@/assets/img/icon/${iconName}.png`);
+    return iconPath;
   }
 }
 </script>
@@ -38,5 +35,4 @@ export default {
   width: 33vw;
   height: 33vh;
 }
-
 </style>

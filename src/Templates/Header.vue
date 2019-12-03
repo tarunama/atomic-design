@@ -1,20 +1,22 @@
 <template>
   <v-app-bar app>
-    <HeaderTitle></HeaderTitle>
+    <VHeaderTitle></VHeaderTitle>
     <v-spacer></v-spacer>
     <LatestButton></LatestButton>
   </v-app-bar>
 </template>
 
-<script>
-import HeaderTitle from '@/Organisms/HeaderTitle'
-import LatestButton from '@/Atoms/LatestButton'
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import VHeaderTitle from "@/Organisms/VHeaderTitle.vue";
+import LatestButton from "@/Atoms/LatestButton.vue";
 
-export default {
-  name: 'Header',
+@Component({
   components: {
     LatestButton,
-    HeaderTitle
+    VHeaderTitle
   }
-}
+})
+@Component
+export default class Header extends Vue {}
 </script>

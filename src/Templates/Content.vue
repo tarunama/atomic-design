@@ -1,24 +1,21 @@
 <template>
   <v-content>
-    <WeatherIcon
-      :wData="wData"
-    ></WeatherIcon>
+    <WeatherIcon :wData="wData"></WeatherIcon>
   </v-content>
 </template>
 
-<script>
-import WeatherIcon from '@/Atoms/WeatherIcon'
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
+import WeatherIcon from "@/Atoms/WeatherIcon.vue";
 
-export default {
-  name: 'Content',
+@Component({
   components: {
     WeatherIcon
-  },
-  props: {
-    wData: {
-      type: Object,
-      required: false
-    }
   }
+})
+@Component
+export default class Content extends Vue {
+  @Prop()
+  wData!: Object;
 }
 </script>
